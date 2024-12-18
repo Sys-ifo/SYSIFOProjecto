@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(81, 12, 241);
+}
+
+main {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+main h1 {
+  margin-top: 30vh;
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  color: rgb(255, 255, 255);
+  margin-bottom: 70px;
+}
+
+#carousel {
+  position: relative;
+  z-index: 1; /* Certificar-se de que o carrossel esteja acima do fundo */
+}
+
+.gradient-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #fff8d1, #9c75ff, #6A42C2, #471f92, #6a42c7);
+  background-size: 300% 300%;
+  animation: colors 15s ease infinite;
+  z-index: 0; /* Certificar-se de que o gradiente esteja abaixo do carrossel */
+}
+
+@keyframes colors {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.slide-row {
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+
+.slide-col {
+  flex: 0 0 100%;
+  max-width: 100%;
+  display: none; /* Inicialmente, os slides não são exibidos */
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.slide-col:first-child {
+  display: flex; /* Exibir o primeiro slide inicialmente */
+}
+
+.hero img {
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  flex-grow: 1;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border-radius: 8px;
+  padding: 20px;
+  color: black;
+  margin-right: -10px; /* Ajustar margem negativa para colar a imagem */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 180px; /* Ajustando a altura máxima */
+  overflow: hidden; /* Garantir que o texto não transborde */
+  position: relative;
+  z-index: 0;
+}
+
+.content p, .content h2, .content a {
+  font-size: 1rem; /* Definir tamanho fixo para os textos */
+  font-weight: bold; /* Deixar os textos em negrito */
+}
+
+.content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #31d807;
+}
+
+.indicator {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.indicator .btn {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  margin: 4px;
+  border-radius: 15px;
+  background: #fff;
+  pointer-events: none; /* Desabilitar eventos de clique */
+  transition: all 0.5s ease-in-out;
+}
+
+.btn.active {
+  width: 30px;
+  background: #000; /* Realçar o botão ativo */
+}
+
+@media (max-width: 850px) {
+  main {
+    max-width: 500px;
+  }
+
+  .slide-col {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hero img {
+    height: 150px;
+    width: 150px;
+  }
+
+  .content {
+    width: calc(100% - 160px); /* Ajusta a largura da área de texto */
+    margin-right: 0;
+    max-height: 140px; /* Ajustando a altura máxima */
+  }
+}
+
+@media (max-width: 550px) {
+  main {
+    max-width: 300px;
+  }
+
+  .slide-col {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hero img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .content {
+    width: calc(100% - 110px); /* Ajusta a largura da área de texto */
+    padding: 10px;
+    max-height: 90px; /* Ajustando a altura máxima */
+  }
+
+  .content p, .content h2, .content a {
+    font-size: 0.8rem; /* Reduzir tamanho do texto para telas menores */
+    font-weight: bold; /* Deixar os textos em negrito */
+  }
+}
+
+#carousel {
+  height: 110vh;
+  border-style: solid;
+  width: 100%;
+  background-color: blueviolet;
+}

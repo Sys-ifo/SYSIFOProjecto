@@ -1,0 +1,67 @@
+.contato {
+  background-color: #17eb3a;
+  border: 3px solid #000000;
+  border-radius: 2rem;
+  width: 50%;
+  height: 80%;
+  margin-top: 1%;
+  padding: 1rem;
+}
+
+.texts {
+  background-color: #17eb3a;
+  text-decoration:bolder;
+  
+  border-radius: 10px; /* Borda arredondada */
+  padding: 20px; /* Espaçamento interno */
+  border: 1px solid #ffffff; /* Cor da borda */
+  width: 80%; /* Ocupa 90% da largura do contêiner */
+  max-width: 100%; /* Garante que o campo não ultrapasse a largura do contêiner */
+  box-sizing: border-box; /* Inclui padding e border no tamanho total do elemento */
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#botao {
+  background-color: #1bce24; /* Verde */
+  border: none; /* Sem borda */
+  color: white; /* Texto branco */
+  padding: 15px 32px; /* Espaçamento */
+  text-align: center; /* Centraliza o texto */
+  text-decoration: none; /* Sem sublinhado */
+  display: inline-block; /* Inline, mas respeitando as propriedades do bloco */
+  font-size: 12px; /* Tamanho da fonte */
+  margin: 70px 2px; /* Margens */
+  cursor: pointer; /* Cursor de clique */
+  border-radius: 12px; /* Bordas arredondadas */
+  transition: background-color 0.3s; /* Transição suave ao passar o mouse */
+}
+
+#botao:hover {
+  background-color: #000000; /* Cor ao passar o mouse */
+}
+
+#fundo {
+  background-color: #00d223;
+}
+
+::placeholder {
+  font-size: 1.0rem;
+  color: #000000;
+}
+
+@media (max-width: 600px) {
+  .contato {
+      width: 90%; /* Largura ajustável em telas menores */
+  }
+
+  .texts {
+      width: 90%; /* Largura ajustável em telas menores */
+  }
+
+}

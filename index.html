@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Sisifo Project</title>
+  
+    
+    <link rel="icon" href="/assets/IMG/Sisifo.gif" type="image/x-icon">
+    
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="/assets/CSS/carrousel.css">
+  <link rel="stylesheet" href="/assets/CSS/style.css">
+  <style>
+    /* Estilo para ocultar o overflow do corpo quando o menu estiver aberto */
+    body.menu-open {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">
+      <a href="/index.html">
+        <img src="/assets/IMG/Sisifo.gif" alt="" style="height: 9.1rem; width: auto; max-height: 70px;">
+      </a>
+    </label>
+    <ul>
+      <li><a class="active" href="#carrouselback">Home</a></li>
+      <li><a href="#carrouselback">Quem Somos?</a></li>
+      <li><a href="#backcard">Serviços</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="#footerr">Redes</a></li>
+    </ul>
+  </nav>
+ <!------------------------ Carrousel --------------------->
+
+ <section id="carousel" class="gradient-bg">
+  <main>
+    <h1>Quem Somos?</h1>
+    <div class="slider" id="slider">
+      <div class="slide-row" id="slide-row">
+        <!-- Primeira Coluna -->
+        <div class="slide-col">
+          <div class="content">
+            <p>"Tecnhology is the Truth"</p>
+            <h2>Thiago Pucinelli A. S.</h2>
+            <p>FullStack e Design</p>
+            <a href="https://github.com/TheThiagoPucinelli" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+          <div class="hero">
+            <img src="/assets/IMG/integrantes/Thiago.png" alt="avatar">
+          </div>
+        </div>
+        <!-- Segunda Coluna -->
+        <div class="slide-col">
+          <div class="content">
+            <p>"Canva é minha paixão"</p>
+            <h2>Josué A. Lemos</h2>
+            <p>Chefe de Design</p>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div class="hero">
+            <img src="/assets/IMG/integrantes/Josue.png" alt="avatar">
+          </div>
+        </div>
+        <!-- Terceira Coluna -->
+        <div class="slide-col">
+          <div class="content">
+            <p>"Pró-ativo demais para o backend"</p>
+            <h2>Vinicius A. Leal</h2>
+            <p>Back-End e Direção</p>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div class="hero">
+            <img src="/assets/IMG/integrantes/Vini.png" alt="avatar">
+          </div>
+        </div>
+        <!-- Quarta Coluna -->
+        <div class="slide-col">
+          <div class="content">
+            <p>"Just Keep Pushing."</p>
+            <h2>Otávio D. S. Pacheco</h2>
+            <p>FullStack & Direção</p>
+            <a href="https://github.com/OtavioDSP" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+          <div class="hero">
+            <img src="/assets/IMG/integrantes/Otavio.jpeg" alt="avatar">
+          </div>
+        </div>
+        <!-- Quinta Coluna -->
+        <div class="slide-col">
+          <div class="content">
+            <p>"Proficiente em resolução de problemas."</p>
+            <h2>Andrei Buss F.</h2>
+            <p>Back-End & DevOps</p>
+            <a href="https://github.com/andreicuruja" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+          <div class="hero">
+            <img src="/assets/IMG/integrantes/Andriei.png" alt="avatar">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="indicator">
+      <span class="btn"></span>
+      <span class="btn"></span>
+      <span class="btn"></span>
+      <span class="btn"></span>
+      <span class="btn"></span>
+    </div>
+  </main>
+</section>
+
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    const slides = document.getElementsByClassName("slide-col");
+    const dots = document.getElementsByClassName("btn");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "flex";  
+    dots[slideIndex-1].className += " active";
+  }
+
+  setInterval(function() {
+    plusSlides(1);
+  }, 5000); // Muda de slide a cada 5 segundos
+</script>
+
+<script>
+document.querySelectorAll('nav ul li a').forEach(item => {
+  item.addEventListener('click', function(e) {
+    const checkbox = document.getElementById('check');
+    checkbox.checked = false;
+    document.body.classList.remove('menu-open');
+    const href = this.getAttribute('href');
+    setTimeout(() => {
+      window.location.href = href;
+    }, 300); // Espera 300ms para fechar o menu antes de redirecionar
+    e.preventDefault(); // Previne a ação padrão para gerenciar o redirecionamento
+  });
+});
+</script>
+
+
+
+ <!------------------------ Cards --------------------->
+
+<section id="backcard">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/script.js"></script>
+</section>
+  
+  <section>
+    <center><h1 style="color: aliceblue;">Serviços </h1></center>
+    <div class="wrapper">
+      <div class="card card_text-firstImage">
+          <img src="assets/IMG/AdobeStock_286032339-1-740x493.jpeg" alt="">
+      </div>
+      <div class="card card_text-secundImage">
+          <img src="assets/IMG/o-que-e-prototipacao-.webp" alt="">
+      </div>
+      <div class="card card_text-thirdImage">
+          <img src="assets/IMG/f04652d2-f715-4b95-b16a-db60a919c61e.jpg" alt="">
+      </div>
+      <div class="card card_text-fourImage">
+          <img src="/assets/IMG/R.png" alt="">
+      </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </section>
+
+
+  <!------------------------ Contato --------------------->
+
+  <div id="fundo">
+    <br><br><br><br>
+    <center>
+      <section id="contato">
+        <div class="contato">
+          <form action="https://api.staticforms.xyz/submit" method="post">
+            <input type="hidden" name="recipient" value="testeiseuemail@gmail.com">
+            <input type="hidden" name="subject" value="teste de assunto">
+            <input type="hidden" name="accessKey" value="6530068d-96b0-44b3-8540-b85f998f54c6">
+            <div class="container">
+              <br>
+              <h3>Contato</h3>
+              <label for="nome"></label>
+              <input class="texts" type="text" name="name" id="nome" placeholder="Digite Seu nome:" required>
+              <br>
+              <label for="email"></label>
+              <input class="texts" type="email" name="email" id="email" placeholder="Digite Seu Email:" required>
+              <br><br>
+              <label for="message"><h3>Mensagem</h3></label>
+              <br>
+              <textarea class="texts" name="message" id="message" cols="30" rows="10" placeholder="Digite Seu Comentário Aqui:" style="resize: vertical;"></textarea>
+              <br>
+              <button id="botao" type="submit">Enviar</button>
+              <br><br>
+            </div>
+          </form>
+        </div>
+      </section>
+    </center>
+    <br><br><br><br><br><br>
+  </div>
+
+  <!------------------------ Footer --------------------->
+ 
+ <section id="footerr"><footer>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/"><i class="fab fa-github"></i></a>
+    </div>
+    <p>&copy; 2024 Sisifo Project. Todos os direitos reservados.</p>
+  </footer>
+</section> 
+  <script>
+    const check = document.getElementById('check');
+    check.addEventListener('change', function() {
+        document.body.classList.toggle('menu-open', this.checked);
+    });
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 890) {
+            document.body.classList.remove('menu-open');
+            check.checked = false;
+        }
+    });
+  </script>  
+</body>
+</html>
