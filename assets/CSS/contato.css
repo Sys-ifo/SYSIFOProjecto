@@ -3,13 +3,13 @@
   border: 3px solid #000000;
   border-radius: 2rem;
   width: 50%;
-  height: 80%;
+  height: 90%;
   margin-top: 1%;
   padding: 1rem;
 }
 
 .texts {
-  background-color: #17eb3a;
+  background-color: #04ff2e00;
   text-decoration:bolder;
   
   border-radius: 10px; /* Borda arredondada */
@@ -55,9 +55,10 @@
   color: #000000;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .contato {
-      width: 90%; /* Largura ajustável em telas menores */
+      width: 80%; /* Largura ajustável em telas menores */
+    
   }
 
   .texts {
