@@ -1,0 +1,32 @@
+
+
+.CI {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #000000;
+    background: rgb(229, 229, 230);
+    border-radius: 50%;
+    overflow: hidden;
+    
+}
+
+.circle {
+    position: relative;
+    width: 180px;
+    height: 230px;
+}
+
+.circle .CI {
+    position: absolute;
+    top: 2vmin;
+    bottom: 2vmin;
+    left: -.5vmin;
+    right: -.5vmin;
+    animation: roate 5s infinite ease-in-out;
+}
+
+@keyframes roate {
+    to { transform: rotate(180deg); }
+}
