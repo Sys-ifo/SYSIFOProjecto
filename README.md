@@ -30,4 +30,4 @@ Este projeto é uma aplicação web responsiva desenvolvida pela startup **SISIF
 
 ## Licença
 
-Este projeto é licenciado sob a [Licença MIT](LICENSE).
+Este projeto é licenciado sob a [Licença MIT](LICENSE). Em breve...
