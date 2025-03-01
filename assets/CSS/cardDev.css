@@ -1,237 +1,130 @@
-
-.wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+/* Card com dimensões definidas via variáveis */
+:root {
+  --card-width: 25rem;
+  --card-height: 25rem;
+  --card-border-radius: 20px;
+  --card-border: 3px solid #1beb3e;
 }
 
-.card {
-  margin: 20px 10px;
-  position: relative;
-  align-items: center;
+#servicos{
+ 
 }
-
-.card img {
-  width: 16rem;
-  height: 28rem;
-  border-radius: 45px;
-  border: solid 3px green;
-}
-
-.card:hover::after {
-  position: absolute;
-  font-size: 20px;
-  bottom: 50%;
-  left: 0%;
-  color: white;
-  transition: 200ms ease-in-out;
-  text-align: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-
-
-
-.card img:hover {
-  transition: 20ms ease-in-out;
-  filter: brightness(45%);
-  transform: scale(1.03);
-  border: solid 3px rgb(3, 255, 3);
-}
-
-/* Estilo para esconder os cards quando o menu móvel está aberto */
-body.menu-open .wrapper {
-  display: none;
-}
-
-/* CSS dos cards */
+/* Container dos cards */
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  margin-bottom: 30px;
-  margin-top: 30px;
+  margin: 2rem auto;
 }
 
+/* Estilo do card */
 .card {
-  margin: 20px 10px;
+  margin: 1rem;
   position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
   display: flex;
   justify-content: center;
-}
-
-.card img {
-  width: 25rem;
-  height: 25rem;
-  border-radius: 20px;
-  border: solid 3px green;
-}
-
-.card:hover::after {
-  position: absolute;
-  font-size: 20px;
-  bottom: 50%;
-  left: 49%;
-  transform: translateX(-50%);
-  color: white;
-  transition: 200ms ease-in-out;
-  text-align: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.card_text-1Image:hover::after {
-  content: "Marketing";
-}
-.card_text-2Image:hover::after {
-  content: "Desenvolvimento";
-}
-.card_text-3Image:hover::after {
-  content: "Levantamento de Requesitos";
-}
-.card_text-4Image:hover::after {
-  content: "Equipe";
-}
-
-
-.card img:hover {
-  transition: 20ms ease-in-out;
-  filter: brightness(45%);
-  transform: scale(1.03);
-  border: solid 3px rgb(3, 255, 3);
-}
-
-/* Estilo para esconder os cards quando o menu móvel está aberto */
-body.menu-open .wrapper {
-  display: none;
-}
-
-#backcard{
-  height: 10vh;
- 
- 
- 
- 
-}
-
-
-
-
-
-
-
-
-#SG {
-  position: relative;
-  width: 100%;
-  height: 180px; /* Ajuste a altura conforme necessário */
+  align-items: center;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.background {
-  position: absolute;
+/* Efeito hover no card: elevação, escala e rotação */
+.card:hover {
+  transform: translateY(-10px) scale(1.05) rotate(0.5deg);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo da imagem dentro do card */
+.card img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  border-radius: var(--card-border-radius);
+  border: var(--card-border);
+  transition: filter 0.3s ease;
+}
+
+/* Ao hover, a imagem fica mais escura */
+.card:hover img {
+  filter: brightness(70%);
+}
+
+/* Overlay de gradiente que surge com o hover */
+.card::before {
+  content: "";
+  position: absolute;
   top: 0;
   left: 0;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: #03d426;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+.card:hover::before {
+  opacity: 1;
 }
 
-.background li {
+.card::after {
+  content: "";
   position: absolute;
-  display: block;
-  list-style: none;
-  width: 20px;
-  height: 20px;
-  background: rgba(0, 0, 0, 0.2);
-  animation: animate 16s linear infinite;
+  width: 100%;
+  bottom: 0;           /* Coloca o elemento na borda inferior */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+  padding-bottom: 1rem; /* Espaço entre o texto e a borda inferior */
+  text-align: center;
 }
 
-@keyframes animate {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-    border-radius: 0;
-  }
-  100% {
-    transform: translateY(-1000px) rotate(720deg);
-    opacity: 0;
-    border-radius: 50%;
-  }
+
+/* Exibe o texto customizado para cada tipo de card */
+.card.card_text-1Image:hover::after {
+  content: "Marketing";
+  opacity: 1;
+}
+.card.card_text-2Image:hover::after {
+  content: "Desenvolvimento";
+  opacity: 1;
+}
+.card.card_text-3Image:hover::after {
+  content: "Levantamento de Requisitos";
+  opacity: 1;
+}
+.card.card_text-4Image:hover::after {
+  content: "Equipe";
+  opacity: 1;
 }
 
-.background li:nth-child(1) {
-  left: 44%;
-  width: 343px;
-  height: 343px;
-  bottom: -343px;
-  animation-delay: 1s;
+/* Opcional: Esconde os cards se o menu móvel estiver aberto */
+body.menu-open .wrapper {
+  display: none;
 }
-.background li:nth-child(2) {
-  left: 27%;
-  width: 236px;
-  height: 236px;
-  bottom: -236px;
-  animation-delay: 1s;
+
+
+
+
+/* animação no Em breve*/
+@keyframes piscar {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
 }
-.background li:nth-child(3) {
-  left: 19%;
-  width: 194px;
-  height: 194px;
-  bottom: -194px;
-  animation-delay: 6s;
+
+.breve-animation {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: piscar 2s infinite ease-in-out;
 }
-.background li:nth-child(4) {
-  left: 39%;
-  width: 324px;
-  height: 324px;
-  bottom: -324px;
-  animation-delay: 7s;
-}
-.background li:nth-child(5) {
-  left: 22%;
-  width: 264px;
-  height: 264px;
-  bottom: -264px;
-  animation-delay: 13s;
-}
-.background li:nth-child(6) {
-  left: 76%;
-  width: 428px;
-  height: 428px;
-  bottom: -428px;
-  animation-delay: 6s;
-}
-.background li:nth-child(7) {
-  left: 16%;
-  width: 422px;
-  height: 422px;
-  bottom: -422px;
-  animation-delay: 5s;
-}
-.background li:nth-child(8) {
-  left: 78%;
-  width: 186px;
-  height: 186px;
-  bottom: -186px;
-  animation-delay: 2s;
-}
-.background li:nth-child(9) {
-  left: 88%;
-  width: 169px;
-  height: 169px;
-  bottom: -169px;
-  animation-delay: 36s;
-}
-.background li:nth-child(10) {
-  left: 15%;
-  width: 104px;
-  height: 104px;
-  bottom: -104px;
-  animation-delay: 22s;
-}
+
+

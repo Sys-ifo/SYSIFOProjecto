@@ -1,24 +1,48 @@
+/* Configuração da área de contato */
 .contato {
-  background-color: #17eb3a;
-  border: 3px solid #000000;
+  position: relative;
+  background-color: #1beb3e;
+  border: none; /* Remove a borda preta */
   border-radius: 2rem;
-  width: 50%;
+  width: 40%;
   height: 90%;
-  margin-top: 1%;
+  margin-top: 5%;
+  margin-bottom: 3%;
   padding: 1rem;
+  z-index: 1; /* Garante que fique acima da animação */
+
+  /* Sombra para efeito flutuante */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.25); /* Sombra mais suave e realista */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza o efeito */
 }
 
+/* Efeito de "subida" ao passar o mouse */
+.contato:hover {
+  transform: translateY(-10px); /* Dá um pequeno efeito de elevação */
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.3); /* Aumenta a sombra */
+}
+
+/* Estilização dos campos */
 .texts {
-  background-color: #04ff2e00;
-  text-decoration:bolder;
-  
-  border-radius: 10px; /* Borda arredondada */
-  padding: 20px; /* Espaçamento interno */
-  border: 1px solid #ffffff; /* Cor da borda */
-  width: 80%; /* Ocupa 90% da largura do contêiner */
-  max-width: 100%; /* Garante que o campo não ultrapasse a largura do contêiner */
-  box-sizing: border-box; /* Inclui padding e border no tamanho total do elemento */
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 20px;
+  border: 2px solid #000000;
+  width: 80%;
+  max-width: 100%;
+  box-sizing: border-box;
   font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .contato {
+      width: 80%; /* Ajusta a largura para telas menores */
+  }
+
+  .texts {
+      width: 90%;
+  }
 }
 
 .container {
@@ -28,7 +52,7 @@
 }
 
 #botao {
-  background-color: #1bce24; /* Verde */
+  background-color: #000000; 
   border: none; /* Sem borda */
   color: white; /* Texto branco */
   padding: 15px 32px; /* Espaçamento */
@@ -43,26 +67,66 @@
 }
 
 #botao:hover {
-  background-color: #000000; /* Cor ao passar o mouse */
+  background-color: #00ff55; /* Cor ao passar o mouse */
+  color: #000000;
 }
 
-#fundo {
-  background-color: #00d223;
-}
+
 
 ::placeholder {
   font-size: 1.0rem;
   color: #000000;
 }
 
-@media (max-width: 900px) {
-  .contato {
-      width: 80%; /* Largura ajustável em telas menores */
-    
-  }
 
-  .texts {
-      width: 90%; /* Largura ajustável em telas menores */
-  }
 
+
+
+
+/*------------------SPACING------------------- */
+
+/* Fundo animado */
+#SG {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ocupa toda a tela */
+  overflow: hidden;
+  background: #03d426;
+}
+
+/* Contêiner das bolhas */
+.background {
+  background-color: #03d426;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 0; /* Mantém atrás do contato */
+}
+
+/* Bolhas animadas */
+.background li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  bottom: -50px; /* Começa fora da tela */
+  border-radius: 50%;
+  animation: animate 10s linear infinite;
+}
+
+/* Animação das bolhas */
+@keyframes animate {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.5);
+    opacity: 0;
+  }
 }

@@ -26,7 +26,7 @@ nav {
 label.logo {
   color: white;
   font-size: 25px;
-  line-height: 80px;
+  line-height: 130px;
   padding: 0 100px;
   font-weight: bold;
 }
@@ -186,6 +186,28 @@ footer {
   width: 100%;
   border-top: 3px solid #0dff00;
 }
+/* Estilo para os links dentro do footer */
+footer a {
+  color: white; /* Cor dos links será branca */
+  text-decoration: none; /* Remove o sublinhado padrão dos links */
+  transition: color 0.3s; /* Transição suave para a mudança de cor */
+}
+
+footer a:hover {
+  color: #28a745; /* Cor verde quando o mouse passa sobre o link */
+}
+
+/* Estilo para os ícones das redes sociais */
+.social-icons a {
+  margin: 0 10px;
+  font-size: 24px;
+  color: white; /* Ícones também serão brancos */
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #28a745; /* Cor verde para os ícones quando passar o mouse */
+}
 
 footer p {
   margin: 0;
@@ -223,3 +245,18 @@ footer .social-icons a:hover {
     font-size: 16px;
   }
 }
+
+
+
+ @keyframes girarLogo {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  
+    .logo img {
+      animation: girarLogo 4s linear infinite; /* 4s para uma rotação completa, ajuste conforme necessário */
+    }
