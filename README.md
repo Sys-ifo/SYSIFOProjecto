@@ -1,9 +1,9 @@
 Imagem Aqui()
 
-# Projeto de Sistema Web Da StartUp - SISIFO
+# Projeto de Sistema Web Da StartUp - SYSIFO
 
 
-Este projeto é uma aplicação web responsiva desenvolvida pela startup **SISIFO**, criada por alunos do **IFSUL Campus CAVG**. O sistema foca em uma interface de usuário interativa, incluindo uma barra de navegação, seção de serviços com cards interativos, animações e um footer estilizado com ícones de redes sociais.
+Este projeto é uma aplicação web responsiva desenvolvida pela startup **SYSIFO**, criada por alunos do **IFSUL Campus CAVG**. O sistema foca em uma interface de usuário interativa, incluindo uma barra de navegação, seção de serviços com cards interativos, animações e um footer estilizado com ícones de redes sociais.
 
 ## Funcionalidades
 
