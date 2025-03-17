@@ -31,6 +31,6 @@ Este projeto é uma aplicação web responsiva desenvolvida pela startup **SYSIF
 - **Ajustes no Layout para Telas Pequenas:** Melhorias de layout para garantir a fluidez em dispositivos móveis, especialmente em telas menores que 320px.
 - **Melhorias no Footer:** Ícones sociais animados que mudam de cor ao passar o mouse, proporcionando uma experiência interativa e dinâmica.
 
-## Licença
+### 📜 Licença
 
-Este projeto é licenciado sob a [Licença MIT](LICENSE). Em breve...
+Este projeto está licenciado sob a Licença Creative Commons BY-NC-ND 4.0, o que significa que você pode compartilhá-lo, mas não pode modificá-lo ou usá-lo para fins comerciais.
